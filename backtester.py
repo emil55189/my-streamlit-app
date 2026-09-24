@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from hmmlearn.hmm import GaussianHMM
-from data_loader import load_btc_data
+from data_loader import load_xauusd_data
 import ta  # Technical Analysis library
 from sklearn.preprocessing import StandardScaler
 
@@ -343,8 +343,8 @@ def run_backtest(mode='NORMAL'):
         trailing_stop_pct = 0.0     # No trailing stop
 
     # Step 1: Load data
-    print("Loading BTC-USD data...")
-    df = load_btc_data()
+    print("Loading XAUUSD data (GC=F proxy)...")
+    df = load_xauusd_data()
 
     # Step 2: Calculate features for HMM
     print("Calculating features...")

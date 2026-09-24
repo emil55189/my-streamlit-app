@@ -1,9 +1,10 @@
 import yfinance as yf
 import pandas as pd
 
-def load_btc_data(period="730d", interval="1h"):
+def load_xauusd_data(period="730d", interval="1h"):
     """
-    Load BTC-USD hourly data for the specified period.
+    Load XAUUSD hourly data for the specified period.
+    Uses GC=F (Gold Futures) as a proxy for XAUUSD spot price.
 
     Args:
         period (str): Period for data download (default: "730d" for 730 days)
@@ -12,7 +13,7 @@ def load_btc_data(period="730d", interval="1h"):
     Returns:
         pd.DataFrame: DataFrame with OHLCV data
     """
-    ticker = "BTC-USD"
+    ticker = "GC=F"
     data = yf.download(ticker, period=period, interval=interval)
 
     # Check if data is empty
@@ -39,7 +40,7 @@ def load_btc_data(period="730d", interval="1h"):
 
 if __name__ == "__main__":
     # Test the data loader
-    df = load_btc_data()
-    print(f"Loaded {len(df)} rows of BTC-USD data")
+    df = load_xauusd_data()
+    print(f"Loaded {len(df)} rows of GC=F (Gold Futures) data")
     print(df.head())
     print(df.tail())

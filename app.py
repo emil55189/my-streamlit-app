@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # Title and description
-st.title("Regime-Based Trading App for BTC-USD")
+st.title("Regime-Based Trading App for XAUUSD")
 st.markdown("""
 This app implements a regime-based trading strategy using Hidden Markov Models (HMM) to detect market regimes and a voting system with 8 confirmations for entry signals.
 It supports both NORMAL and AGGRESSIVE modes with different risk parameters.
@@ -43,7 +43,7 @@ with col2:
     st.metric(label="Detected Regime", value=current_regime)
 
 # Main price chart using Streamlit's built-in line chart
-st.subheader("BTC-USD Price Chart")
+st.subheader("XAUUSD Price Chart")
 try:
     # Use Streamlit's built-in line chart for reliability
     price_data = df.set_index('Date')[['Close']].copy()
@@ -97,4 +97,4 @@ with st.expander("View Full Backtest Summary"):
 
 # Footer
 st.markdown("---")
-st.markdown("*Data sourced from yfinance. Strategy backtested on hourly BTC-USD data for the last 730 days.*")
+st.markdown("*Data sourced from yfinance (GC=F proxy for XAUUSD). Strategy backtested on hourly data for the last 730 days.*")
